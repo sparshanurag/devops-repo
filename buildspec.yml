@@ -3,16 +3,16 @@ version: 0.2
 env:
   variables:
     AWS_DEFAULT_REGION: us-east-1
-    ECR_REPO_URI: 817827901549.dkr.ecr.us-east-1.amazonaws.com/fastapi-app
+    ECR_REPO_URI: 817827901549.dkr.ecr.us-east-1.amazonaws.com
 
 phases:
   pre_build:
     commands:
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPO_URI
+      - - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 817827901549.dkr.ecr.us-east-1.amazonaws.com
 
   build:
     commands:
-      - docker build -t fastapi-app .
+      - docker build -t fastapi-app -f application/dockerfile application
       - docker tag fastapi-app:latest $ECR_REPO_URI:latest
 
   post_build:
