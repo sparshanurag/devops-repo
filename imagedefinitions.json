@@ -1,0 +1,6 @@
+[
+    {
+      "name": "backend-app",
+      "imageUri": "817827901549.dkr.ecr.us-east-1.amazonaws.com/fastapi-app:latest"
+    }
+]

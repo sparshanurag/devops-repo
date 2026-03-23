@@ -3,7 +3,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: <TASK_DEFINITION>
+        TaskDefinition: arn:aws:ecs:us-east-1:817827901549:task-definition/backend-app:1
         LoadBalancerInfo:
-          ContainerName: backend-api
+          ContainerName: backend-app
           ContainerPort: 80
